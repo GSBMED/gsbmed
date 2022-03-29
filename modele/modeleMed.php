@@ -3,7 +3,7 @@
 function gLoBaLe()
 {
 
-	$url = 'http://localhost:50434/WebService1.asmx?WSDL';
+	$url = 'http://localhost:50417/WebService1.asmx?WSDL';
 	$options = array(
 	'cache_wad1' => 0,
 	'trace' => 1,
@@ -82,3 +82,20 @@ $client = new SoapClient($url, $options);
 	return $lesRes;
 	
 }
+
+function getActivite(){
+
+$client = gLoBaLe();
+
+$res = $client->getActivite();
+$lesRes = $res->getActiviteResult->string;
+$tab = array();
+for ($i=0;$i<count($lesRes);$i++)
+$tab[$i]=explode("#",$lesRes[$i]);
+
+return $tab;
+}
+
+?>
+
+

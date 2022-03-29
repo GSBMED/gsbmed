@@ -10,7 +10,7 @@
      <button class="subnavbtn">Inscription</button>
       </div></a>
 
-      <a href="activites.php">
+      <a href="activite.php">
      <div class="subnav">
      <button class="subnavbtn">Activites</button>
       </div></a>

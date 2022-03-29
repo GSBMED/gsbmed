@@ -31,7 +31,6 @@
                         <p>
                         GsbMed une équipe de 7 professionnels au service des patients et des médecins de la Haute-Garonne et des départements limitrophes.</br>
 
-                        ccc
 Une structure entièrement intégrée, grâce à son réseau interne .
 Une structure ouverte avec une accessibilité en temps réel à vos médicaments.</br>
 Une structure de proximité grâce à ses multiples sites,
@@ -44,13 +43,9 @@ Une équipe qualifiée dans les médicaments , tel que les effets secondaire de 
                             L'équipe
                         </h4>
                         <p>
-                        GsbMed une équipe de 7 professionnels au service des patients et des médecins de la Haute-Garonne et des départements limitrophes.</br>
-
-Une structure entièrement intégrée, grâce à son réseau interne .
-Une structure ouverte avec une accessibilité en temps réel à vos médicaments.</br>
-Une structure de proximité grâce à ses multiples sites,
-Un acteur de santé impliqué dans le fonctionnement du soin de la personne.</br>
-Une équipe qualifiée dans les médicaments , tel que les effets secondaire de chaques médicaments ainsi que les intéractions entre les différents médicaments.
+                       <img src="../img/photoSiteBrice.jpg" id="photoDev">
+                       <img src="../img/photoMax.jpg" id="photoDev">
+                       <img src="../img/photoDiego.jpg" id="photoDev">
                         </p>
                     </li>
                 </ul>

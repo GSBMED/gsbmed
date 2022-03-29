@@ -203,7 +203,8 @@ p#mentionLegaleP{
 }
 
 #steps ul{
-    margin: 0px 0;
+    margin: 0px 3px;
+    text-decoration: none;
 }
 #steps ul li{
   width: 600px;
@@ -213,8 +214,19 @@ p#mentionLegaleP{
 }
 #steps p{
   margin-bottom: 20px;
+  font-size: 20px;
 }
 #steps h4{
   text-transform: uppercase;
   margin-bottom: 25px;
+}
+
+#steps-2{
+  background-image: ('../img/photoSiteBrice.jpg');
+}
+
+#photoDev{
+  width: 130px;
+  height: 150px;
+  border-radius: 30%;
 }
