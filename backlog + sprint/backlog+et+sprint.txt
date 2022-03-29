@@ -1,0 +1,12 @@
+SPRINT 1
+
+- Affichage médicament avec description
+- effet therapeutique sur un button
+- effet secondaire sur un button
+- Afficher interaction entre medicaments
+
+SPRINT 2
+
+- Affichage activité 
+- Inscription activité (formulaire)
+- Creation de compte (admin , utilisateur)
