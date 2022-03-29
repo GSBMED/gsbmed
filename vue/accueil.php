@@ -30,7 +30,7 @@
                         </h4>
                         <p>
                         GsbMed une équipe de 7 professionnels au service des patients et des médecins de la Haute-Garonne et des départements limitrophes.</br>
-ccc
+
 Une structure entièrement intégrée, grâce à son réseau interne .
 Une structure ouverte avec une accessibilité en temps réel à vos médicaments.</br>
 Une structure de proximité grâce à ses multiples sites,
