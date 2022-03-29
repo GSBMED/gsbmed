@@ -1,0 +1,329 @@
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Hôte : 127.0.0.1:3306
+-- Généré le :  jeu. 24 mars 2022 à 10:49
+-- Version du serveur :  5.7.26
+-- Version de PHP :  7.2.18
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+--
+-- Base de données :  `receba`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `activite`
+--
+
+DROP TABLE IF EXISTS `activite`;
+CREATE TABLE IF NOT EXISTS `activite` (
+  `idActivite` int(11) NOT NULL,
+  `nomActivite` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `dateActivite` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `heureActivite` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idActivite`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `activite`
+--
+
+INSERT INTO `activite` (`idActivite`, `nomActivite`, `dateActivite`, `heureActivite`) VALUES
+(1, 'Yoga', '22/05/2022', '15h00'),
+(2, 'Tuto huiles essentiels', '25/05/2022', '10h00');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `effet_secondaire`
+--
+
+DROP TABLE IF EXISTS `effet_secondaire`;
+CREATE TABLE IF NOT EXISTS `effet_secondaire` (
+  `idSecondaire` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `nomSecondaire` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descriptionSec` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idSecondaire`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `effet_secondaire`
+--
+
+INSERT INTO `effet_secondaire` (`idSecondaire`, `nomSecondaire`, `descriptionSec`) VALUES
+('1', 'aggravation d\'une maladie cardiaque', 'Angine de poitrine, insuffisance cardiaque, troubles du rythme cardiaque'),
+('2', 'possibles réactions allergiques', 'Les signes et symptômes les plus courants sont : éruption cutanée, urticaire, démangeaisons, gonflement du cou et du visage, gêne respiratoire et rougeurs.');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `effet_therapeutique`
+--
+
+DROP TABLE IF EXISTS `effet_therapeutique`;
+CREATE TABLE IF NOT EXISTS `effet_therapeutique` (
+  `idTherapeutique` int(11) NOT NULL,
+  `nomTherapeutique` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descriptionThe` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idTherapeutique`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `effet_therapeutique`
+--
+
+INSERT INTO `effet_therapeutique` (`idTherapeutique`, `nomTherapeutique`, `descriptionThe`) VALUES
+(1, 'antalgique', 'Contre la douleur'),
+(2, 'anti-inflammatoire', 'Fluidifiant du sang');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `etapes`
+--
+
+DROP TABLE IF EXISTS `etapes`;
+CREATE TABLE IF NOT EXISTS `etapes` (
+  `idEtape` int(11) NOT NULL,
+  `Date_etape` date DEFAULT NULL,
+  `Travail_realise` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Heure_debut` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `idTicket` int(11) NOT NULL,
+  `idTechnicien` int(11) NOT NULL,
+  PRIMARY KEY (`idEtape`),
+  KEY `idTicket` (`idTicket`),
+  KEY `idTechnicien` (`idTechnicien`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `fournisseur`
+--
+
+DROP TABLE IF EXISTS `fournisseur`;
+CREATE TABLE IF NOT EXISTS `fournisseur` (
+  `idContrat` int(11) NOT NULL,
+  `Type` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Fournisseur` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Garantie` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Date_contrat` date DEFAULT NULL,
+  PRIMARY KEY (`idContrat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `materiel`
+--
+
+DROP TABLE IF EXISTS `materiel`;
+CREATE TABLE IF NOT EXISTS `materiel` (
+  `idMateriel` int(11) NOT NULL,
+  `Nom` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Processeur` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Memoire` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Disque` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Logiciels` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `type_contrat` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Garantie_contrat` int(11) DEFAULT NULL,
+  `Date_contrat` date DEFAULT NULL,
+  `idContrat` int(11) NOT NULL,
+  PRIMARY KEY (`idMateriel`),
+  KEY `idContrat` (`idContrat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `medicament`
+--
+
+DROP TABLE IF EXISTS `medicament`;
+CREATE TABLE IF NOT EXISTS `medicament` (
+  `idMedicament` int(11) NOT NULL AUTO_INCREMENT,
+  `nomMedicament` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `descriptMedic` varchar(2000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `img` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idMedicament`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `medicament`
+--
+
+INSERT INTO `medicament` (`idMedicament`, `nomMedicament`, `descriptMedic`, `img`) VALUES
+(1, 'doliprane', 'Ce médicament est un antalgique et un antipyrétique qui contient du paracétamol. Il est utilisé pour faire baisser la fièvre et dans le traitement des affections douloureuses.', ''),
+(2, 'levothyrox', 'Ce médicament contient une hormone qui appartient à la famille des hormones thyroïdiennes. Il est principalement utilisé comme traitement substitutif pour remplacer la thyroxine naturelle lorsque celle-ci n\'est plus sécrétée en quantité suffisante par la thyroïde. Cette insuffisance de sécrétion, ou hypothyroïdie, peut être due à la thyroïde elle-même ou à l\'insuffisance d\'une autre glande qui commande la sécrétion thyroïdienne (maladie ou ablation de l\'hypophyse). Il est également utilisé lorsque l\'on veut freiner l\'action excitatrice de l\'hypophyse sur la thyroïde, notamment dans certains goitres.', '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `personnel`
+--
+
+DROP TABLE IF EXISTS `personnel`;
+CREATE TABLE IF NOT EXISTS `personnel` (
+  `idPersonnel` int(11) NOT NULL,
+  `Matricule` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Adresse` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Email` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Nom` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Prenom` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Date_embauche` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idPersonnel`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `personnel`
+--
+
+INSERT INTO `personnel` (`idPersonnel`, `Matricule`, `Adresse`, `Email`, `Nom`, `Prenom`, `Date_embauche`) VALUES
+(0, 'PERS01', '1 rue du yul', 'yul@gmail.com', 'PA', 'Max', '14/10/2021'),
+(1, 'PERS02', '7 rue du brock', 'iencli@gmail.com', 'MAT', 'Brice', '10/8/2021');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `possedesecondaire`
+--
+
+DROP TABLE IF EXISTS `possedesecondaire`;
+CREATE TABLE IF NOT EXISTS `possedesecondaire` (
+  `idMedicament` int(11) NOT NULL,
+  `idEffetN` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `possedesecondaire`
+--
+
+INSERT INTO `possedesecondaire` (`idMedicament`, `idEffetN`) VALUES
+(1, 1),
+(2, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `possedetherapeutique`
+--
+
+DROP TABLE IF EXISTS `possedetherapeutique`;
+CREATE TABLE IF NOT EXISTS `possedetherapeutique` (
+  `idMedicament` int(11) NOT NULL,
+  `idEffetP` int(11) NOT NULL,
+  PRIMARY KEY (`idMedicament`,`idEffetP`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `possedetherapeutique`
+--
+
+INSERT INTO `possedetherapeutique` (`idMedicament`, `idEffetP`) VALUES
+(1, 2),
+(2, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `techniciens`
+--
+
+DROP TABLE IF EXISTS `techniciens`;
+CREATE TABLE IF NOT EXISTS `techniciens` (
+  `idTechnicien` int(11) NOT NULL,
+  `Matricule` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `Nom` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Prenom` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Formation` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Competence` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Niv_intervention` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`idTechnicien`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `techniciens`
+--
+
+INSERT INTO `techniciens` (`idTechnicien`, `Matricule`, `Nom`, `Prenom`, `Formation`, `Competence`, `Niv_intervention`) VALUES
+(0, 'TECH01', 'LAFF', 'Matthieu', 'uneFormation', 'TropFort', 'Elevee');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `tickets`
+--
+
+DROP TABLE IF EXISTS `tickets`;
+CREATE TABLE IF NOT EXISTS `tickets` (
+  `idTicket` int(11) NOT NULL,
+  `Date_ticket` date DEFAULT NULL,
+  `Auteur` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Niv_urgence` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Objet` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Etat` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Type_intervention` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `materielConcerne` varchar(25) COLLATE utf8_unicode_ci NOT NULL,
+  `idMateriel` int(11) NOT NULL,
+  `idPersonnel` int(11) NOT NULL,
+  PRIMARY KEY (`idTicket`),
+  KEY `idMateriel` (`idMateriel`),
+  KEY `idPersonnel` (`idPersonnel`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `utilisateur`
+--
+
+DROP TABLE IF EXISTS `utilisateur`;
+CREATE TABLE IF NOT EXISTS `utilisateur` (
+  `idUtilisateur` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `prenom` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `adresse` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `telephone` int(11) DEFAULT NULL,
+  `pseudo` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `mdp` varchar(1500) COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`idUtilisateur`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`idUtilisateur`, `nom`, `prenom`, `adresse`, `telephone`, `pseudo`, `mdp`) VALUES
+(1, 'pajot', 'max', 'uwu', 8998877, 'maxlamenace', '01FA0501AA7E466BB89841900C24357E73AF331E');
+
+--
+-- Contraintes pour les tables déchargées
+--
+
+--
+-- Contraintes pour la table `etapes`
+--
+ALTER TABLE `etapes`
+  ADD CONSTRAINT `etapes_ibfk_1` FOREIGN KEY (`idTicket`) REFERENCES `tickets` (`idTicket`),
+  ADD CONSTRAINT `etapes_ibfk_2` FOREIGN KEY (`idTechnicien`) REFERENCES `techniciens` (`idTechnicien`);
+
+--
+-- Contraintes pour la table `materiel`
+--
+ALTER TABLE `materiel`
+  ADD CONSTRAINT `materiel_ibfk_1` FOREIGN KEY (`idContrat`) REFERENCES `fournisseur` (`idContrat`);
+
+--
+-- Contraintes pour la table `tickets`
+--
+ALTER TABLE `tickets`
+  ADD CONSTRAINT `tickets_ibfk_1` FOREIGN KEY (`idMateriel`) REFERENCES `materiel` (`idMateriel`),
+  ADD CONSTRAINT `tickets_ibfk_2` FOREIGN KEY (`idPersonnel`) REFERENCES `personnel` (`idPersonnel`);
+COMMIT;
