@@ -1,6 +1,6 @@
 <footer>
         <div class="cvg">
-            <a href="cvg.php">CVG</a> | <a href="mentionLegale.php"> Mentions légales</a> |<a href="donneePersonnel.php"> Protection des données</a> 
+            <a href="../vue/cvg.php">CVG</a> | <a href="../vue/mentionLegale.php"> Mentions légales</a> |<a href="../vue/donneePersonnel.php"> Protection des données</a> 
 
         </div>
 

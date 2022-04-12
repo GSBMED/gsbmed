@@ -2,7 +2,7 @@
 
 function gLoBaLe()
 {
-
+	ini_set('max_execution_time',0);
 	$url = 'http://localhost:50417/WebService1.asmx?WSDL';
 	$options = array(
 	'cache_wad1' => 0,
@@ -18,10 +18,10 @@ function gLoBaLe()
 	return $client;
 }
 
-function connexionBd()
+/*function connexionBd()
 {
 $user = "root";
-$mdp = " ";
+$mdp = "";
 $serveur_et_base = "mysql:host=localhost;dbname=receba";
 try
 {
@@ -32,7 +32,7 @@ catch(Exception $e)
 die("Erreur : ".$e->getMessage());
 }
 return $bd;
-}
+}*/
 
 function getMedicaments()
 {
@@ -56,7 +56,7 @@ function getEffetTherapeutique($nomMedoc)
 
 $client = gLoBaLe();
 	
-$client = new SoapClient($url, $options);
+//$client = new SoapClient($url, $options);
 
 	$parameters=array('nomMedicament' => $nomMedoc);
 	$res = $client->getMedoc($parameters);
@@ -74,7 +74,7 @@ function getMdpPseudo()
 
 $client = gLoBaLe();
 	
-$client = new SoapClient($url, $options);
+//$client = new SoapClient($url, $options);
 
 	$res = $client->tab2D();
 	$lesRes = $res->tab2DResult->string;
@@ -96,6 +96,18 @@ $tab[$i]=explode("#",$lesRes[$i]);
 return $tab;
 }
 
+function inscriptionSite($nom,$prenom,$adresse,$telephone ,$pseudo,$mdp){
+		
+	$client = gLoBaLe();
+	$parameters = array('nom'=>$nom, 'prenom'=>$prenom, 'adresse'=>$adresse,'telephone'=>$telephone,'pseudo'=>$pseudo,'mdp'=>$mdp);
+	$res = $client->inscription($parameters);
+
+}
+function connexionSite($pseudo,$mdp){
+	$client = gLoBaLe();
+	
+	$parameters = array('pseudo'=>$pseudo,'mdp'=>$mdp);
+	$res = $client->Connexion($parameters);
+    $Res = $res->ConnexionResult;
+}
 ?>
-
-

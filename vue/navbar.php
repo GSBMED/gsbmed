@@ -5,22 +5,22 @@
         <img src="../img/GSB_Logo_Sans_Nom.png" class="logoNavbar" >
       </div>
 
-      <a href="inscription.php">
+      <a href="../vue/inscription.php">
       <div class="subnav">
-     <button class="subnavbtn">Inscription</button>
+     <button class="subnavbtn">Connexion</button>
       </div></a>
 
-      <a href="activite.php">
+      <a href="../controleur/aiguillageActivite.php">
      <div class="subnav">
      <button class="subnavbtn">Activites</button>
       </div></a>
 
-      <a href="listeMed.php">
+      <a href="../controleur/aiguillageMedicament.php">
      <div class="subnav">
      <button class="subnavbtn">Medicaments</button>
     </div></a>
     
-      <a href="accueil.php">
+      <a href="../vue/accueil.php">
     <div class="subnav">
     <button class="subnavbtn">Accueil</button>
     </div></a>

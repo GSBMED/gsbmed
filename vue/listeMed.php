@@ -25,6 +25,8 @@
  <th></th>
  <th>Nom</th>
  <th>Description</th>
+ <th>Effets therapeutiques</th>
+ <th>Effets secondaires</th>
  </tr>
  <!-- affichage de chacune des lignes du tableau -->
  <?php foreach ($medicaments as $medicament): ?>
@@ -37,6 +39,8 @@
  <td><img src="../vue/img/uwu.jpg" class="imgMed"></td>
  <td><?php echo $medicament[0];?></td>
  <td><?php echo $medicament[1];?></td>
+ <td><span class="hovertext" data-hover="<?php echo $medicament[4];?>"><?php echo $medicament[3];?></span></td>
+ <td><span class="hovertext" data-hover="<?php echo $medicament[6];?>"><?php echo $medicament[5];?></span></td>
  </tr>
  </form>
  <?php endforeach; ?>

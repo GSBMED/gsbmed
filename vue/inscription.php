@@ -10,6 +10,7 @@
 <body>
 
 <?php include("navbar.php"); ?>
+
 <?php include("footer.php"); ?>
                     <div class="form-box">
                         <div class="form">
@@ -17,21 +18,23 @@
                                 <h1 class="main-heading">Formulaire de connexion</h1>
 				                <input type="text"placeholder="nom d'utilisateur"/>
 				                <input type="password"placeholder="mot de passe"/>
-				                <button>CONNEXION</button>
-				                <p class="message">Non inscrit? <a href="#">S'enregistrer</a></p>
+				                <input type="submit" class="submit" value="Connexion"></input>
+				                <p class="message"> Non inscrit ? <a href="#">S'enregistrer</a></p>
 				            </form>
-                            <form class="register-form">
+
+                            <form class="register-form" method="post" action="../controleur/aiguillageInscription.php">
                                <h1 class="main-heading">Formulaire d'inscription   </h1>
-				                <input type="text" placeholder="nom"/>
-				                <input type="text" placeholder="prenom"/>
-                                <input type="text" placeholder="adresse"/>
-				                <input type="text" placeholder="telephone"/>				               
-                                <input type="text" placeholder="pseudo"/>
-                                <input type="password" placeholder="mot de passe"/>
-				                <button>INSCRIPTION</button>
-				                <p class="message">Deja enregistré?<a href="#">Connexion </a>
+				                <input type="text" name="nom" placeholder="nom"/>
+				                <input type="text" name="prenom" placeholder="prenom"/>
+                                <input type="text" name="adresse" placeholder="adresse"/>
+				                <input type="text" name="telephone" placeholder="telephone"/>				               
+                                <input type="text" name="pseudo" placeholder="pseudo"/>
+                                <input type="password" name="mdp" placeholder="mot de passe"/>
+				                <input type="submit" class="submit" value="Inscription"></input>
+				                <p class="message">Deja enregistré ?<a href="#"> Connexion </a>
 				                </p>
 				            </form>
+                        
 			             </div>
 	                </div>
                 

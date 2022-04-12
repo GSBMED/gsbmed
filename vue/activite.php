@@ -17,9 +17,9 @@
 <?php include("footer.php"); ?>
 
 <div class="container">
-<h2>Activités</h2><br />
+<h2 id="activite">Inscription aux activitées</h2>
 <!-- mise en place du tableau -->
-<table >
+<table class>
 <!-- mise en place de la ligne de titre -->
 <tr>
 <th>Activité</th>

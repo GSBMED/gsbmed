@@ -204,13 +204,14 @@ p#mentionLegaleP{
 
 #steps ul{
     margin: 0px 3px;
-    text-decoration: none;
+    list-style-type: none;
 }
 #steps ul li{
   width: 600px;
   float: left;  
   text-align: center;
   margin-right: 10px;
+  
 }
 #steps p{
   margin-bottom: 20px;
@@ -230,3 +231,8 @@ p#mentionLegaleP{
   height: 150px;
   border-radius: 30%;
 }
+
+#DescriptionE{
+  text-align:start;
+}
+
